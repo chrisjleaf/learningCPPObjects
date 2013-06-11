@@ -16,7 +16,9 @@ typedef struct rect{
   double (*Perimeter) (struct rect *);   
   double (*Area)      (struct rect *);   
   void   (*toString)  (struct rect *);
-  void   (*destroy)   (struct rect *);
+
+  //Destructor
+  void   (*destroy)   (struct rect *);  
 } Rect;
 typedef Rect *pRect; //Means "*pRect" is of type Rect
 
