@@ -1,5 +1,11 @@
 #include "rect.h"
 
+//Local definitions, no one else can see them
+static double Perimeter(pRect);
+static double Area(pRect); 
+static void setDim(pRect, double, double);
+static void toString(pRect);
+static void Destroy(pRect);
 //Using malloc
 //void *ptr = malloc( #bytes) 
 //  and sizeof(datatype) is a useful COMPILER function that equates to the 
@@ -14,28 +20,36 @@ pRect Rectangle(double w, double l){
   //These names for w and l are not conflicting because 
   this->w = w;   //~= (*pRect).w meaning Rect.w
   this->l = l;   //~= (*pRect).l meaning Rect.d
+
+  //Set up methods to reference the correct stuff
+  this->Perimeter = &Perimeter;
+  this->Area      = &Area;
+  this->setDim    = &setDim;
+  this->toString  = &toString;
+  this->destroy   = &Destroy;
+
   return this;
 }
 
 //(pRect this) ~= (Rect *this)
-void destroyRectange(pRect this){
+void Destroy(pRect this){
   free(this); 
 } 
 
 //(pRect this) ~= (Rect *this)
-double Perimeter(pRect this){
+static double Perimeter(pRect this){
   return 2 * (this->w) + 2 * (this->l); 
 }
 //(pRect this) ~= (Rect *this)
-double Area(pRect this){
+static double Area(pRect this){
   return (this->w) * (this->l);
 }
 
-void setDim(pRect this, double w, double l){
+static void setDim(pRect this, double w, double l){
   this->w = w; 
   this->l = l;
 }
 
-void toString(pRect this){
+static void toString(pRect this){
   printf("[%lf,%lf]\n", this->w, this->l);
 }
