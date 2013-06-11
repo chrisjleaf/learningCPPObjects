@@ -1,10 +1,25 @@
 #include "rect.h"
 
-double Perimeter(double w, double l){
+static double w = 0.0;
+static double l = 0.0;
+
+void Rectangle(double x, double y){
+  w = x; 
+  l = y;
+}
+
+double Perimeter(void){
   return 2 * w + 2 * l; 
 }
-double Area(double w, double l){
+double Area(void){
   return w * l;
 }
 
+void setDim(double x, double y){
+  w = x; 
+  l = y;
+}
 
+void toString(void){
+  printf("[%lf,%lf]\n", w, l);
+}
