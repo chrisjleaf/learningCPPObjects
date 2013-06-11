@@ -3,7 +3,6 @@
 //Local definitions, no one else can see them
 static double Perimeter(pRect);
 static double Area(pRect); 
-static void setDim(pRect, double, double);
 static void toString(pRect);
 static void Destroy(pRect);
 //Using malloc
@@ -12,6 +11,23 @@ static void Destroy(pRect);
 //number of bytes in a datatype
 //Better to make sure the "types agree" 
 //int *ptr = (int *)malloc( sizeof(int) )
+
+pRect Square(double w){
+  pRect this = (pRect)malloc( sizeof(Rect) );
+//Rect *this = (Rect*)malloc( sizeof(Rect) ); //Equivalent statement
+
+  //These names for w and l are not conflicting because 
+  this->w = w;   //~= (*pRect).w meaning Rect.w
+  this->l = w;   //~= (*pRect).l meaning Rect.d
+
+  //Set up methods to reference the correct stuff
+  this->Perimeter = &Perimeter;
+  this->Area      = &Area;
+  this->toString  = &toString;
+  this->destroy   = &Destroy;
+
+  return this;
+}
 
 pRect Rectangle(double w, double l){
   pRect this = (pRect)malloc( sizeof(Rect) );
@@ -24,7 +40,6 @@ pRect Rectangle(double w, double l){
   //Set up methods to reference the correct stuff
   this->Perimeter = &Perimeter;
   this->Area      = &Area;
-  this->setDim    = &setDim;
   this->toString  = &toString;
   this->destroy   = &Destroy;
 
@@ -45,11 +60,7 @@ static double Area(pRect this){
   return (this->w) * (this->l);
 }
 
-static void setDim(pRect this, double w, double l){
-  this->w = w; 
-  this->l = l;
-}
-
 static void toString(pRect this){
   printf("[%lf,%lf]\n", this->w, this->l);
 }
+

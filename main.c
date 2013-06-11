@@ -1,7 +1,6 @@
 #include "stdio.h"
 #include "rect.h"
 
-
 int main(int argc, char *argv[]){
   double w = 5.0, l = 2.0;
   printf("w = %lf, l = %lf\n", w, l);
@@ -17,7 +16,7 @@ int main(int argc, char *argv[]){
 
   //Create another Object
   printf("HisRect:\n");
-  pRect hisRect = Rectangle(1.0, 1.0);
+  pRect hisRect = Square(4.0);
   hisRect->toString(hisRect);
   printf("Perimeter = %lf\n", hisRect->Perimeter(hisRect) );
   printf("Area = %lf\n", hisRect->Area(hisRect) );

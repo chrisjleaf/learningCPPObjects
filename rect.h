@@ -15,7 +15,6 @@ typedef struct rect{
   //If * is not inside () it means a function returning a pointer to a double
   double (*Perimeter) (struct rect *);   
   double (*Area)      (struct rect *);   
-  void   (*setDim)    (struct rect *, double, double);   
   void   (*toString)  (struct rect *);
   void   (*destroy)   (struct rect *);
 } Rect;
@@ -23,5 +22,7 @@ typedef Rect *pRect; //Means "*pRect" is of type Rect
 
 //Constructor
 pRect Rectangle(double, double);
+
+pRect Square(double); 
 
 #endif //_RECT_H_
