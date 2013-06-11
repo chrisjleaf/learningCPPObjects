@@ -13,20 +13,7 @@ static void Destroy(pRect);
 //int *ptr = (int *)malloc( sizeof(int) )
 
 pRect Square(double w){
-  pRect this = (pRect)malloc( sizeof(Rect) );
-//Rect *this = (Rect*)malloc( sizeof(Rect) ); //Equivalent statement
-
-  //These names for w and l are not conflicting because 
-  this->w = w;   //~= (*pRect).w meaning Rect.w
-  this->l = w;   //~= (*pRect).l meaning Rect.d
-
-  //Set up methods to reference the correct stuff
-  this->Perimeter = &Perimeter;
-  this->Area      = &Area;
-  this->toString  = &toString;
-  this->destroy   = &Destroy;
-
-  return this;
+  return Rectangle(w, w);
 }
 
 pRect Rectangle(double w, double l){
