@@ -7,7 +7,8 @@ int main(int argc, char *argv[]){
   printf("Perimeter = %lf\n", myRect.Perimeter());
   printf("Area = %lf\n", myRect.Area() );
 
-  Rect hisRect  = Square(1.0);
+  // Polymorphism, act like you are, I'll treat you by your type.
+  Square hisRect  = Square(1.0);
   hisRect.toString();
   printf("Perimeter = %lf\n", hisRect.Perimeter());
   printf("Area = %lf\n", hisRect.Area() );

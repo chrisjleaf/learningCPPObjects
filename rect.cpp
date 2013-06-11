@@ -20,7 +20,7 @@ double Rect::Area(void){
 }
 
 void Rect::toString(void){
-  printf("[%lf,%lf]\n", w, l);
+  printf("Rectangle:[%lf,%lf]\n", w, l);
 }
 
 Square::Square(double w)
@@ -29,3 +29,6 @@ Square::Square(double w)
 Square::~Square(){
 }
 
+void Square::toString(void){
+  printf("Square:[%lf,%lf]\n", w, l);
+}

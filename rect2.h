@@ -6,21 +6,28 @@
 
 class Rect{
   public: 
+    //Made fields public...
+    double w; 
+    double l;
+
+    //Constructor
     Rect(double, double); //Constructor, has the same name, no return type
     ~Rect(void);          //Destructor,  same name w/ a ~, no return type
   
     double  Perimeter(void);
     double  Area(void);
-    void    toString(void);
+    virtual void    toString(void);
     
   private: 
-    double w; 
-    double l;
+    //Because Square now references the private variables it cannot 
+    //be defined as private, otherwise it cannot reference them. 
 }; 
 
 class Square : public Rect{
   public: 
     Square(double);
     ~Square(void);
+
+    virtual void    toString(void);
 };
 #endif //_RECT2_H_
