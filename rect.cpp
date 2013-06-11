@@ -23,3 +23,9 @@ void Rect::toString(void){
   printf("[%lf,%lf]\n", w, l);
 }
 
+Square::Square(double w)
+  :Rect(w,w){
+}
+Square::~Square(){
+}
+

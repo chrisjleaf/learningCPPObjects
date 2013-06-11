@@ -17,4 +17,10 @@ class Rect{
     double w; 
     double l;
 }; 
+
+class Square : public Rect{
+  public: 
+    Square(double);
+    ~Square(void);
+};
 #endif //_RECT2_H_

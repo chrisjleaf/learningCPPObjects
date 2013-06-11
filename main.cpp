@@ -7,7 +7,7 @@ int main(int argc, char *argv[]){
   printf("Perimeter = %lf\n", myRect.Perimeter());
   printf("Area = %lf\n", myRect.Area() );
 
-  Rect hisRect  = Rect(1.0, 1.0);
+  Rect hisRect  = Square(1.0);
   hisRect.toString();
   printf("Perimeter = %lf\n", hisRect.Perimeter());
   printf("Area = %lf\n", hisRect.Area() );
